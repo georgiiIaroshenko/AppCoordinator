@@ -4,7 +4,7 @@ public final class AppCoordinator: BaseCoordinator {
     
     var router: RouterProtocol?
     
-    init(router: RouterProtocol? = nil) {
+    public init(router: RouterProtocol? = nil) {
         self.router = router
         super.init()
     }
