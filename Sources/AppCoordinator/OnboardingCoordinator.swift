@@ -24,7 +24,6 @@ class OnboardingCoordinator: BaseCoordinator {
     
     func showOnboarding() {
         let vc = factory.makeOnboardingViewController()
-        parentCoordinator?.navigationController?.pushViewController(vc, animated: false)
-//        navigationController?.pushViewController(vc, animated: false)
+        navigationController?.pushViewController(vc, animated: false)
     }
 }
