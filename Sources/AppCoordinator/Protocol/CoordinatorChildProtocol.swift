@@ -15,7 +15,7 @@ public protocol CoordinatorProtocol: AnyObject {
 }
 
 public protocol CoordinatorFinishDelegate: AnyObject {
-    func coordinatorDidFinish(childCoordinators: CoordinatorProtocol)
+    func coordinatorDidFinish(childCoordinator: CoordinatorProtocol)
 }
 
 @MainActor
@@ -35,7 +35,7 @@ public class BaseCoordinator: CoordinatorProtocol {
     }
     
     public func finish() {
-        finishDelegate?.coordinatorDidFinish(childCoordinators: self)
+        finishDelegate?.coordinatorDidFinish(childCoordinator: self)
         parentCoordinator?.removeChildCoordinator(self)
         print("Coordinator finish!")
     }

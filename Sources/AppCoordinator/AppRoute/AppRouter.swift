@@ -28,6 +28,9 @@ public final class AppRouter: RouterProtocol {
         case .onboarding:
             let onboardingCoordinator = OnboardingCoordinator(factory: factory)
             onboardingCoordinator.navigationController = parent.navigationController
+            
+            onboardingCoordinator.finishDelegate = parent as? CoordinatorFinishDelegate
+            
             parent.addChildCoordinator(onboardingCoordinator)
             onboardingCoordinator.start()
         case .auth:

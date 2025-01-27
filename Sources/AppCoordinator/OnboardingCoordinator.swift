@@ -24,13 +24,7 @@ class OnboardingCoordinator: BaseCoordinator {
     
     func showOnboarding() {
         let vc = factory.makeOnboardingViewController()
-        
-//        if let onboardingVC = vc as? OnboardingViewController {
-//        vc.onFinishOnboarding = { [weak self] in
-//                        self?.userDidFinishOnboarding()
-//                    }
-//                }
-        
-        navigationController?.pushViewController(vc, animated: false)
+        parentCoordinator?.navigationController?.pushViewController(vc, animated: false)
+//        navigationController?.pushViewController(vc, animated: false)
     }
 }
