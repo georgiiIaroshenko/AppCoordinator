@@ -5,14 +5,13 @@ public enum AppRoute {
     case auth
     case main
 }
+
 @MainActor
 public protocol RouterProtocol {
     func route(to route: AppRoute, from parent: CoordinatorProtocol)
 }
 
-public protocol FactoryProtocol: OnboardingFactoryProtocol {
-    
-}
+public protocol FactoryProtocol: OnboardingFactoryProtocol, AuthorizationFactoryProtocol {}
 
 @MainActor
 public final class AppRouter: RouterProtocol {
@@ -34,7 +33,13 @@ public final class AppRouter: RouterProtocol {
             parent.addChildCoordinator(onboardingCoordinator)
             onboardingCoordinator.start()
         case .auth:
-            break
+            let authorizationCoordinator = AuthorizationCoordinator(factory: factory)
+            authorizationCoordinator.navigationController = parent.navigationController
+            
+            authorizationCoordinator.finishDelegate = parent as? CoordinatorFinishDelegate
+            
+            parent.addChildCoordinator(authorizationCoordinator)
+            authorizationCoordinator.start()
         case .main:
             break
         }

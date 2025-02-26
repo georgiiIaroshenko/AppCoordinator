@@ -17,6 +17,8 @@ public final class AppCoordinator: BaseCoordinator {
         removeChildCoordinator(childCoordinator)
         if childCoordinator is OnboardingCoordinator {
             router?.route(to: .auth, from: self)
+        } else if childCoordinator is AuthorizationCoordinator {
+            router?.route(to: .main, from: self)
         }
     }
 }

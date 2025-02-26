@@ -22,6 +22,12 @@ class OnboardingCoordinator: BaseCoordinator {
             finish()
         }
     
+    override func finish() {
+        super.finish()
+        
+        
+    }
+    
     func showOnboarding() {
         let vc = factory.makeOnboardingViewController()
         navigationController?.pushViewController(vc, animated: false)
