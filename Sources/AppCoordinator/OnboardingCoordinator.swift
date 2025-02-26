@@ -1,7 +1,7 @@
 import UIKit
 
 public protocol OnboardingFactoryProtocol {
-    func makeOnboardingViewController() -> UIViewController
+    func makeOnboardingViewController(didFinishOnboarding: @escaping () -> Void) -> UIViewController
 }
 
 @MainActor
@@ -18,18 +18,21 @@ class OnboardingCoordinator: BaseCoordinator {
         showOnboarding()
     }
     
-    func userDidFinishOnboarding() {
-            finish()
-        }
-    
-    override func finish() {
-        super.finish()
-        
-        
-    }
+//    func userDidFinishOnboarding() {
+//            finish()
+//        }
+//    
+//    override func finish() {
+//        super.finish()
+//        
+//        
+//    }
     
     func showOnboarding() {
-        let vc = factory.makeOnboardingViewController()
+        let vc = factory.makeOnboardingViewController { [weak self] in
+            self?.finish()
+        }
+    
         navigationController?.pushViewController(vc, animated: false)
     }
 }
