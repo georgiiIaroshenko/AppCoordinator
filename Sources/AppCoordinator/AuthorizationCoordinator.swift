@@ -8,7 +8,7 @@
 import UIKit
 
 public protocol AuthorizationFactoryProtocol {
-    func makeAuthorizationViewController(didFinishAuthorizationOnboarding: @escaping () -> Void) -> UIViewController
+    func makeAuthorizationViewController(didFinishAuthorization: @escaping () -> Void) -> UIViewController
 }
 
 @MainActor
