@@ -18,16 +18,6 @@ class OnboardingCoordinator: BaseCoordinator {
         showOnboarding()
     }
     
-//    func userDidFinishOnboarding() {
-//            finish()
-//        }
-//    
-//    override func finish() {
-//        super.finish()
-//        
-//        
-//    }
-    
     func showOnboarding() {
         let vc = factory.makeOnboardingViewController { [weak self] in
             self?.finish()

@@ -24,11 +24,11 @@ class AuthorizationCoordinator: BaseCoordinator {
     public override func start() {
         showAuthorization()
     }
-//    
-//    func userDidFinishAuthorization() {
-//            finish()
-//        }
-//    
+    
+    func userDidFinishAuthorization() {
+            finish()
+        }
+    
     func showAuthorization() {
         let vc = factory.makeAuthorizationViewController { [weak self] in
             self?.finish()
