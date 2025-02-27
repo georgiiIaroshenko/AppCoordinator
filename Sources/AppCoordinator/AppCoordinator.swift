@@ -1,6 +1,6 @@
 import UIKit
 
-public final class AppCoordinator: BaseCoordinator {
+public final class AppCoordinator: BaseCoordinator, CoordinatorFinishDelegate {
     
     var router: RouterProtocol?
     
