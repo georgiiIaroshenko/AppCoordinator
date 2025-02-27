@@ -19,13 +19,9 @@ class OnboardingCoordinator: BaseCoordinator {
     }
     
     func showOnboarding() {
-        let vc = factory.makeOnboardingViewController { [weak self] in
-            if let strongSelf = self {
-                    print("Дошли до вызова finish() в \(strongSelf)")
-                    strongSelf.finish()
-                } else {
-                    print("Координатор уже деинициализирован!")
-                }
+        let vc = factory.makeOnboardingViewController {
+            print("didFinishOnboarding triggered")
+            self.finish()
         }
     
         navigationController?.pushViewController(vc, animated: false)
