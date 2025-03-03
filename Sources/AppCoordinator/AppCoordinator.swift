@@ -16,7 +16,6 @@ public final class AppCoordinator: BaseCoordinator, CoordinatorFinishDelegate {
     public func coordinatorDidFinish(childCoordinator: CoordinatorProtocol) {
         removeChildCoordinator(childCoordinator)
         if childCoordinator is OnboardingCoordinator {
-            finish()
             router?.route(to: .auth, from: self)
         } else if childCoordinator is AuthorizationCoordinator {
             router?.route(to: .main, from: self)
