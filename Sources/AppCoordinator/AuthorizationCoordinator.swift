@@ -29,7 +29,7 @@ class AuthorizationCoordinator: BaseCoordinator {
         let vc = factory.makeAuthorizationViewController { [weak self] in
             self?.userDidFinishAuthorization()
         }
-        navigationController?.pushViewController(vc, animated: false)
+        navigationController?.setViewControllers([vc], animated: true)
     }
     
     func userDidFinishAuthorization() {

@@ -23,6 +23,6 @@ class OnboardingCoordinator: BaseCoordinator {
             self?.finish()
         }
     
-        navigationController?.pushViewController(vc, animated: false)
+        navigationController?.setViewControllers([vc], animated: true)
     }
 }
